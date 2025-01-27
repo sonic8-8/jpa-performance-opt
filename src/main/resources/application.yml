@@ -13,6 +13,10 @@ spring:
 #        show_sql: true 콘솔창에 출력됨
         format_sql: true
 
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
 logging.level:
   org.hibernate.sql: debug
   org.hibernate.orm.jdbc.bind: trace
