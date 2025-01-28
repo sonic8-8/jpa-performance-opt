@@ -24,7 +24,7 @@ public class OrderRepository {
     }
 
     public List<Order> findAll(OrderSearch orderSearch) {
-        String jpql = "select o from Order o join Member m";
+        String jpql = "select o from Order o join o.member m";
         boolean isFirstCondition = true;
 
         if (orderSearch.getOrderStatus() != null) {
@@ -34,7 +34,7 @@ public class OrderRepository {
             } else {
                 jpql += " and";
             }
-            jpql += "o.status = :status";
+            jpql += " o.status = :status";
         }
 
         if (StringUtils.hasText(orderSearch.getMemberName())) {
