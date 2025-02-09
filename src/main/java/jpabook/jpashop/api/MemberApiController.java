@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class MemberApiController {
@@ -64,6 +66,13 @@ public class MemberApiController {
     static class UpdateMemberResponse {
         private Long id;
         private String name;
+    }
+
+    @GetMapping("/api/v1/members")
+    public List<Member> membersV1() {
+        return memberService.findMembers();
+        // 컬렉션을 직접 반환하는 것은 안티 패턴!
+        // API 스펙이 엔티티에 종속적
     }
 }
 
