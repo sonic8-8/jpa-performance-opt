@@ -77,5 +77,6 @@ public class OrderQueryRepository {
         return result.stream()
                 .map(o -> o.getOrderId())
                 .collect(Collectors.toList());
+
     }
 }
